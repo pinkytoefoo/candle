@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://dtwj0bpn6kdbw"]
 
 [ext_resource type="Script" uid="uid://dwnpt2qetfg5n" path="res://entities/player/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://nvsdam804g7x" path="res://assets/player/shadow_static.png" id="2_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://vefcmwiyg36d" path="res://assets/player/idle.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://c2ali7awfi8r6" path="res://assets/player/walk.png" id="3_fkugw"]
-[ext_resource type="Texture2D" uid="uid://dl5wcwonqrtq2" path="res://candle_small.png" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://c47hk5fx102vx" path="res://candle8x8.png" id="5_8fjmc"]
+[ext_resource type="PackedScene" uid="uid://e3tpcigb2ls0" path="res://dungeons/interactables/shared/interact_component.tscn" id="5_fkugw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
 atlas = ExtResource("2_hqtel")
@@ -164,9 +166,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_1yuod"]
-diffuse_texture = ExtResource("3_sweqy")
-
 [sub_resource type="Gradient" id="Gradient_urp6f"]
 offsets = PackedFloat32Array(0, 0.7590361)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -179,9 +178,45 @@ fill_from = Vector2(0.5, 0.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_as7xp"]
 radius = 4.0
 
-[node name="Player" type="CharacterBody2D" unique_id=2055169610 node_paths=PackedStringArray("animated_sprite")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bls4j"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.98039216, 0.2901961, 0.13725491, 0.3019608)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkugw"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.98039216, 0.2901961, 0.13725491, 0.88235295)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[node name="Player" type="CharacterBody2D" unique_id=2055169610 node_paths=PackedStringArray("animated_sprite", "wax_bar")]
 script = ExtResource("1_onrkg")
 animated_sprite = NodePath("AnimatedSprite2D")
+wax_bar = NodePath("CanvasLayer/ProgressBar")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626753434]
+texture = ExtResource("2_8fjmc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1614031693]
 sprite_frames = SubResource("SpriteFrames_as7xp")
@@ -190,8 +225,8 @@ animation = &"run_back"
 [node name="Candle" type="Sprite2D" parent="." unique_id=1475062792]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(0, 9)
-texture = SubResource("CanvasTexture_1yuod")
+position = Vector2(0, -11)
+texture = ExtResource("5_8fjmc")
 
 [node name="PointLight2D" type="PointLight2D" parent="Candle" unique_id=1961660443]
 position = Vector2(0, -9)
@@ -199,4 +234,33 @@ scale = Vector2(1.5, 1.5)
 texture = SubResource("GradientTexture2D_as7xp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=67508322]
+visible = false
+position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_as7xp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1569204063]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1871240650]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.1
+anchor_bottom = 0.3
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_bls4j")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fkugw")
+value = 50.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=795434632]
+offset_left = 27.0
+offset_top = 9.0
+offset_right = 39.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 3
+text = "wax left"
+
+[node name="InteractComponent" parent="." unique_id=1696677426 instance=ExtResource("5_fkugw")]
+visible = false

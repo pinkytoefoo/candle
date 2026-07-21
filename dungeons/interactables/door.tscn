@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dr3blodr0maf"]
+
+[ext_resource type="Script" uid="uid://boih4ntogy6lt" path="res://dungeons/interactables/door.gd" id="1_yhjyf"]
+[ext_resource type="Script" uid="uid://tsluhknq7omg" path="res://dungeons/interactables/shared/interactable.gd" id="2_kkxmw"]
+[ext_resource type="Texture2D" uid="uid://v7hs7jp36lyf" path="res://assets/other_dungeon/Tileset.png" id="2_svbms"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkxmw"]
+size = Vector2(34, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as7xp"]
+size = Vector2(32, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=801283105 node_paths=PackedStringArray("interactable", "sprite")]
+script = ExtResource("1_yhjyf")
+interactable = NodePath("Interactable")
+sprite = NodePath("Sprite2D")
+is_last_door = null
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1523044143]
+script = ExtResource("2_kkxmw")
+interact_name = "(e) open door"
+metadata/_custom_type_script = "uid://tsluhknq7omg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1088737518]
+shape = SubResource("RectangleShape2D_kkxmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=473006872]
+texture = ExtResource("2_svbms")
+region_enabled = true
+region_rect = Rect2(80, 368, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2110951774]
+shape = SubResource("RectangleShape2D_as7xp")

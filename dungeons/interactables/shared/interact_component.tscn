@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://e3tpcigb2ls0"]
+
+[ext_resource type="Script" uid="uid://do62qi0qqux4w" path="res://entities/player/interact_component.gd" id="1_e2ro6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1yuod"]
+radius = 19.026299
+
+[node name="InteractComponent" type="Node2D" unique_id=1696677426 node_paths=PackedStringArray("interact_label")]
+script = ExtResource("1_e2ro6")
+interact_label = NodePath("Label")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1679590521]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1800625304]
+shape = SubResource("CircleShape2D_1yuod")
+
+[node name="Label" type="Label" parent="." unique_id=470299610]
+z_index = 102
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 27.0
+offset_right = 47.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 6
+text = "e to open"
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_interact_range_area_exited"]

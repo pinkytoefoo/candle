@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d1ok03nbjovh8"]
+
+[ext_resource type="Script" uid="uid://tsluhknq7omg" path="res://dungeons/interactables/shared/interactable.gd" id="1_efcfu"]
+
+[node name="Interactable" type="Area2D" unique_id=581341750]
+script = ExtResource("1_efcfu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573972544]
