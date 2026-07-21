@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://vefcmwiyg36d" path="res://assets/player/idle.png" id="2_hqtel"]
 [ext_resource type="Texture2D" uid="uid://c2ali7awfi8r6" path="res://assets/player/walk.png" id="3_fkugw"]
 [ext_resource type="Texture2D" uid="uid://dl5wcwonqrtq2" path="res://candle_small.png" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://cxvfhxch8bj0a" path="res://entities/player/enemy_test.gd" id="5_fkugw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
 atlas = ExtResource("2_hqtel")
@@ -168,35 +169,68 @@ animations = [{
 diffuse_texture = ExtResource("3_sweqy")
 
 [sub_resource type="Gradient" id="Gradient_urp6f"]
-offsets = PackedFloat32Array(0, 0.7590361)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.5377358, 0.7590361)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.76862746, 0.36862746, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_as7xp"]
 gradient = SubResource("Gradient_urp6f")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="Gradient" id="Gradient_bls4j"]
+colors = PackedColorArray(1, 0.76862746, 0.36862746, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ok24e"]
+gradient = SubResource("Gradient_bls4j")
+width = 55
+height = 55
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_as7xp"]
 radius = 4.0
 
-[node name="Player" type="CharacterBody2D" unique_id=2055169610 node_paths=PackedStringArray("animated_sprite")]
-script = ExtResource("1_onrkg")
-animated_sprite = NodePath("AnimatedSprite2D")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ok24e"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1614031693]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22np6"]
+
+[node name="StartScene" type="Node2D" unique_id=559154731]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=717215489 node_paths=PackedStringArray("animated_sprite", "candle")]
+script = ExtResource("1_onrkg")
+animated_sprite = NodePath("PlayerBody")
+candle = NodePath("Candle")
+
+[node name="PlayerBody" type="AnimatedSprite2D" parent="Player" unique_id=739237167]
 sprite_frames = SubResource("SpriteFrames_as7xp")
 animation = &"run_back"
 
-[node name="Candle" type="Sprite2D" parent="." unique_id=1475062792]
+[node name="Candle" type="Sprite2D" parent="Player" unique_id=1276266166]
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(0, 9)
 texture = SubResource("CanvasTexture_1yuod")
 
-[node name="PointLight2D" type="PointLight2D" parent="Candle" unique_id=1961660443]
+[node name="PointLight2D" type="PointLight2D" parent="Player/Candle" unique_id=1882630048]
 position = Vector2(0, -9)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("GradientTexture2D_as7xp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=67508322]
+[node name="HeatRadius" type="PointLight2D" parent="Player/Candle" unique_id=1329098354]
+position = Vector2(0, -9)
+texture = SubResource("GradientTexture2D_ok24e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=974342473]
 shape = SubResource("CircleShape2D_as7xp")
+
+[node name="enemyTest" type="CharacterBody2D" parent="." unique_id=1398672043]
+script = ExtResource("5_fkugw")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemyTest" unique_id=731011746]
+scale = Vector2(7, 7)
+texture = SubResource("PlaceholderTexture2D_ok24e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyTest" unique_id=2018305644]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("RectangleShape2D_22np6")
