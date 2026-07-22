@@ -1,82 +1,81 @@
-[gd_scene format=3 uid="uid://dtwj0bpn6kdbw"]
+[gd_scene format=3 uid="uid://eut7o1xbx4r4"]
 
-[ext_resource type="Script" uid="uid://dwnpt2qetfg5n" path="res://entities/player/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://nvsdam804g7x" path="res://assets/player/shadow_static.png" id="2_8fjmc"]
-[ext_resource type="Texture2D" uid="uid://vefcmwiyg36d" path="res://assets/player/idle.png" id="2_hqtel"]
-[ext_resource type="Texture2D" uid="uid://c2ali7awfi8r6" path="res://assets/player/walk.png" id="3_fkugw"]
-[ext_resource type="Texture2D" uid="uid://c47hk5fx102vx" path="res://candle8x8.png" id="5_8fjmc"]
-[ext_resource type="PackedScene" uid="uid://e3tpcigb2ls0" path="res://dungeons/interactables/shared/interact_component.tscn" id="5_fkugw"]
+[ext_resource type="Script" uid="uid://dwnpt2qetfg5n" path="res://entities/player/player.gd" id="1_o3ap5"]
+[ext_resource type="Texture2D" uid="uid://vefcmwiyg36d" path="res://assets/player/idle.png" id="2_4c0si"]
+[ext_resource type="Texture2D" uid="uid://c2ali7awfi8r6" path="res://assets/player/walk.png" id="3_hwa26"]
+[ext_resource type="Texture2D" uid="uid://dl5wcwonqrtq2" path="res://candle_small.png" id="4_1pp8g"]
+[ext_resource type="Script" uid="uid://cxvfhxch8bj0a" path="res://entities/player/enemy_test.gd" id="5_hwxno"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("2_hqtel")
+atlas = ExtResource("2_4c0si")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
-atlas = ExtResource("2_hqtel")
+atlas = ExtResource("2_4c0si")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
-atlas = ExtResource("2_hqtel")
+atlas = ExtResource("2_4c0si")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
-atlas = ExtResource("2_hqtel")
+atlas = ExtResource("2_4c0si")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
-atlas = ExtResource("2_hqtel")
+atlas = ExtResource("2_4c0si")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("2_hqtel")
+atlas = ExtResource("2_4c0si")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fjmc"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qiwj3"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(32, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_26q78"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(64, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bectd"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(96, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvtmh"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7thud"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a1qjk"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3ovn"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_afbqv"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gx6sm"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yqrof"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3wlsy"]
-atlas = ExtResource("3_fkugw")
+atlas = ExtResource("3_hwa26")
 region = Rect2(96, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_as7xp"]
@@ -166,6 +165,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_1yuod"]
+diffuse_texture = ExtResource("4_1pp8g")
+
 [sub_resource type="Gradient" id="Gradient_urp6f"]
 offsets = PackedFloat32Array(0, 0.5377358, 0.7590361)
 colors = PackedColorArray(1, 1, 1, 1, 1, 0.76862746, 0.36862746, 1, 0, 0, 0, 1)
@@ -189,53 +191,14 @@ fill_to = Vector2(0.8, 0)
 [sub_resource type="CircleShape2D" id="CircleShape2D_as7xp"]
 radius = 4.0
 
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bls4j"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.98039216, 0.2901961, 0.13725491, 0.3019608)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-corner_detail = 6
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkugw"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0.98039216, 0.2901961, 0.13725491, 0.88235295)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-corner_detail = 6
-
-[node name="Player" type="CharacterBody2D" unique_id=2055169610 node_paths=PackedStringArray("animated_sprite", "wax_bar")]
-script = ExtResource("1_onrkg")
-animated_sprite = NodePath("AnimatedSprite2D")
-wax_bar = NodePath("CanvasLayer/ProgressBar")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626753434]
-texture = ExtResource("2_8fjmc")
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ok24e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22np6"]
 
-[node name="StartScene" type="Node2D" unique_id=559154731]
+[node name="Player" type="Node2D" unique_id=559154731]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=717215489 node_paths=PackedStringArray("animated_sprite", "candle")]
-script = ExtResource("1_onrkg")
+script = ExtResource("1_o3ap5")
 animated_sprite = NodePath("PlayerBody")
 candle = NodePath("Candle")
 
@@ -246,40 +209,28 @@ animation = &"run_back"
 [node name="Candle" type="Sprite2D" parent="Player" unique_id=1276266166]
 texture_filter = 1
 texture_repeat = 1
-position = Vector2(0, -11)
-texture = ExtResource("5_8fjmc")
+position = Vector2(0, 9)
+texture = SubResource("CanvasTexture_1yuod")
 
 [node name="PointLight2D" type="PointLight2D" parent="Player/Candle" unique_id=1882630048]
 position = Vector2(0, -9)
 scale = Vector2(1.5, 1.5)
 texture = SubResource("GradientTexture2D_as7xp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=67508322]
-position = Vector2(-1, 5)
+[node name="HeatRadius" type="PointLight2D" parent="Player/Candle" unique_id=1329098354]
+position = Vector2(0, -9)
+texture = SubResource("GradientTexture2D_ok24e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=974342473]
 shape = SubResource("CircleShape2D_as7xp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1569204063]
+[node name="enemyTest" type="CharacterBody2D" parent="." unique_id=1398672043]
+script = ExtResource("5_hwxno")
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=1871240650]
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.1
-anchor_bottom = 0.3
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_bls4j")
-theme_override_styles/fill = SubResource("StyleBoxFlat_fkugw")
-value = 50.0
-fill_mode = 3
-show_percentage = false
+[node name="Sprite2D" type="Sprite2D" parent="enemyTest" unique_id=731011746]
+scale = Vector2(7, 7)
+texture = SubResource("PlaceholderTexture2D_ok24e")
 
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=795434632]
-offset_left = 13.0
-offset_top = 1.0
-offset_right = 50.0
-offset_bottom = 14.0
-theme_override_font_sizes/font_size = 16
-text = "wax left"
-
-[node name="InteractComponent" parent="." unique_id=1696677426 instance=ExtResource("5_fkugw")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyTest" unique_id=2018305644]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("RectangleShape2D_22np6")
