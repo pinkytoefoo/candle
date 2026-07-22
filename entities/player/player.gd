@@ -7,6 +7,7 @@ class_name Player
 #@export var cha
 @export var wax_bar: ProgressBar
 @export var candle: Sprite2D
+@export var flame: Sprite2D
 @export_group("")
 
 @export_group("Feel")
@@ -40,10 +41,16 @@ func _physics_process(delta: float) -> void:
 	
 	_handle_animations(delta)
 	
-	wax -= delta*heat_scale
+	wax -= .1*delta*heat_scale
 	velocity = input_dir.normalized() * speed+knockback
 	
 	move_and_slide()
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+		if body != null and body.is_in_group("enemies"):
+			take_damage(body.global_position)
+			
 	knockback=lerp(knockback,Vector2.ZERO, 0.1)
 	if wax<=0.0:
 		SceneManager.reload_current_scene()
@@ -58,8 +65,8 @@ func _handle_animations(delta) -> void:
 
 func _update_wax_ui() -> void:
 	wax_bar.value = wax
-	candle.scale=Vector2.ONE*heat_scale
+	flame.scale=Vector2.ONE*heat_scale
 	
 func take_damage(enemypos)->void:
-	wax-=10
-	knockback=(enemypos.direction_to(global_position))*100
+	wax-=3
+	knockback=(enemypos.direction_to(global_position))*400
