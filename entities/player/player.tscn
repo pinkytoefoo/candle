@@ -1,11 +1,31 @@
 [gd_scene format=3 uid="uid://dtwj0bpn6kdbw"]
 
 [ext_resource type="Script" uid="uid://dwnpt2qetfg5n" path="res://entities/player/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://nvsdam804g7x" path="res://assets/player/shadow_static.png" id="2_8fjmc"]
+[ext_resource type="Texture2D" uid="uid://gea08171rbgt" path="res://candle.png" id="2_8fjmc"]
 [ext_resource type="Texture2D" uid="uid://vefcmwiyg36d" path="res://assets/player/idle.png" id="2_hqtel"]
 [ext_resource type="PackedScene" uid="uid://dv2qbdkw73nd2" path="res://entities/player/candle.tscn" id="3_bls4j"]
 [ext_resource type="Texture2D" uid="uid://c2ali7awfi8r6" path="res://assets/player/walk.png" id="3_fkugw"]
-[ext_resource type="PackedScene" uid="uid://e3tpcigb2ls0" path="res://dungeons/interactables/shared/interact_component.tscn" id="5_fkugw"]
+[ext_resource type="Script" uid="uid://do62qi0qqux4w" path="res://entities/player/interact_component.gd" id="6_8fjmc"]
+
+[sub_resource type="Gradient" id="Gradient_urp6f"]
+offsets = PackedFloat32Array(0, 0.5377358, 0.7590361)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.76862746, 0.36862746, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qiwj3"]
+gradient = SubResource("Gradient_urp6f")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_bls4j"]
+colors = PackedColorArray(1, 0.76862746, 0.36862746, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_26q78"]
+gradient = SubResource("Gradient_bls4j")
+width = 55
+height = 55
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.8, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
 atlas = ExtResource("2_hqtel")
@@ -167,7 +187,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_as7xp"]
-radius = 4.0
+radius = 8.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bls4j"]
 content_margin_left = 2.0
@@ -201,24 +221,37 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[node name="Player" type="CharacterBody2D" unique_id=2055169610 node_paths=PackedStringArray("animated_sprite", "wax_bar", "candle")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qiwj3"]
+radius = 9.0
+
+[node name="Player" type="CharacterBody2D" unique_id=2055169610 node_paths=PackedStringArray("wax_bar", "candle")]
 script = ExtResource("1_onrkg")
-animated_sprite = NodePath("AnimatedSprite2D")
 wax_bar = NodePath("CanvasLayer/ProgressBar")
-candle = NodePath("Candle")
+candle = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1626753434]
 texture = ExtResource("2_8fjmc")
 
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=2040818047]
+position = Vector2(1, -18)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_qiwj3")
+
+[node name="HeatRadius" type="PointLight2D" parent="Sprite2D" unique_id=422066053]
+position = Vector2(1, -18)
+texture = SubResource("GradientTexture2D_26q78")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1614031693]
+visible = false
 sprite_frames = SubResource("SpriteFrames_as7xp")
 animation = &"run_back"
 
 [node name="Candle" parent="." unique_id=1539455841 instance=ExtResource("3_bls4j")]
+visible = false
 position = Vector2(0, 9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=67508322]
-position = Vector2(-1, 5)
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_as7xp")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1569204063]
@@ -245,4 +278,34 @@ offset_bottom = 14.0
 theme_override_font_sizes/font_size = 16
 text = "wax left"
 
-[node name="InteractComponent" parent="." unique_id=1696677426 instance=ExtResource("5_fkugw")]
+[node name="InteractComponent" type="Node2D" parent="." unique_id=1297902212 node_paths=PackedStringArray("area", "interact_label")]
+script = ExtResource("6_8fjmc")
+area = NodePath("Area2D")
+interact_label = NodePath("Label")
+
+[node name="Area2D" type="Area2D" parent="InteractComponent" unique_id=587417633]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractComponent/Area2D" unique_id=655452710]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_qiwj3")
+
+[node name="Label" type="Label" parent="InteractComponent" unique_id=834844628]
+z_index = 102
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 19.0
+offset_right = 47.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 16
+text = "e to open"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

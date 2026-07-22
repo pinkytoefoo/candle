@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dv2qbdkw73nd2"]
 
-[ext_resource type="Texture2D" uid="uid://dl5wcwonqrtq2" path="res://candle_small.png" id="1_1td3h"]
+[ext_resource type="Texture2D" uid="uid://dl5wcwonqrtq2" path="res://assets/candles/candle_small.png" id="1_1td3h"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1yuod"]
 diffuse_texture = ExtResource("1_1td3h")

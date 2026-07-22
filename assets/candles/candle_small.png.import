@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k58kga5e7oi3"
-path="res://.godot/imported/cursor_upscaled.png-5aa93670ff1f21141cb6bbbe53b411fe.ctex"
+uid="uid://dl5wcwonqrtq2"
+path="res://.godot/imported/candle_small.png-b4531b7d580a63cb3f4ae66c4610844f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cursor_upscaled.png"
-dest_files=["res://.godot/imported/cursor_upscaled.png-5aa93670ff1f21141cb6bbbe53b411fe.ctex"]
+source_file="res://assets/candles/candle_small.png"
+dest_files=["res://.godot/imported/candle_small.png-b4531b7d580a63cb3f4ae66c4610844f.ctex"]
 
 [params]
 

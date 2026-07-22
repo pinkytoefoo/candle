@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1yfl3aa31uab"]
 
 [ext_resource type="Script" uid="uid://mi0knjh3r7l3" path="res://globals/loading_screen.gd" id="1_hl651"]
-[ext_resource type="Texture2D" uid="uid://d1c2bmr8fpmn6" path="res://batb_candle.png" id="2_vtujn"]
+[ext_resource type="Texture2D" uid="uid://d1c2bmr8fpmn6" path="res://assets/candles/batb_candle.png" id="2_vtujn"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1102935521 node_paths=PackedStringArray("color_rect")]
 process_mode = 3

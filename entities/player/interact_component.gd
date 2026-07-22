@@ -1,9 +1,14 @@
 # queble tutorial
 extends Node2D
 
+@export var area: Area2D
 @export var interact_label: Label
 var current_interactions := []
 var can_interact := true
+
+func _ready() -> void:
+	area.area_entered.connect(_on_interact_range_area_entered)
+	area.area_exited.connect(_on_interact_range_area_exited)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:

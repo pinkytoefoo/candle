@@ -3,7 +3,8 @@ class_name Player
 
 #region exports
 @export_group("Nodes")
-@export var animated_sprite: AnimatedSprite2D
+#@export var animated_sprite: AnimatedSprite2D
+#@export var cha
 @export var wax_bar: ProgressBar
 @export var candle: Sprite2D
 @export_group("")
@@ -17,6 +18,8 @@ class_name Player
 var input_dir: Vector2 = Vector2.ZERO
 var heat_scale:float=.8 
 var knockback=Vector2.ZERO
+
+var rotate_time: float = 0.0
 
 var wax: float = 10.0:
 	set(val):
@@ -35,7 +38,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("scroll_down") and heat_scale>0.1:
 		heat_scale-=.05
 	
-	_handle_animations()
+	_handle_animations(delta)
 	
 	wax -= delta*heat_scale
 	velocity = input_dir.normalized() * speed+knockback
@@ -45,20 +48,13 @@ func _physics_process(delta: float) -> void:
 	if wax<=0.0:
 		SceneManager.reload_current_scene()
 
-func _handle_animations() -> void:
-	if input_dir == Vector2.ZERO:
-		animated_sprite.play(&"idle_front")
-		return
-	
-	if abs(input_dir.x) > abs(input_dir.y) or abs(input_dir.x) == abs(input_dir.y):
-		animated_sprite.flip_h = (input_dir.x < 0)
-		animated_sprite.play(&"run_side")
+func _handle_animations(delta) -> void:
+	if input_dir != Vector2.ZERO:
+		rotate_time = wrapf(rotate_time + (delta * 20.0), 0, 20.0 * 10)
+		candle.rotation = sin(rotate_time) * deg_to_rad((-18.0) * sign(input_dir.x if input_dir.x != 0 else 1.0))
 	else:
-		animated_sprite.flip_h = false
-		if input_dir.y > 0:
-			animated_sprite.play(&"run_front")
-		else:
-			animated_sprite.play(&"run_back")
+		rotate_time = 0.0
+		candle.rotation = lerp(candle.rotation, 0.0, delta * 10)
 
 func _update_wax_ui() -> void:
 	wax_bar.value = wax
@@ -67,4 +63,3 @@ func _update_wax_ui() -> void:
 func take_damage(enemypos)->void:
 	wax-=10
 	knockback=(enemypos.direction_to(global_position))*100
-	

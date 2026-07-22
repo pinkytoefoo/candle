@@ -2,9 +2,10 @@
 
 [ext_resource type="FontFile" uid="uid://c23i1xopflnbk" path="res://assets/BitPotion.ttf" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://cs84kf4xl2awh" path="res://menus/main_menu.gd" id="1_ij7vn"]
+[ext_resource type="Texture2D" uid="uid://dpdqkbfseraoq" path="res://chair.png" id="3_a63lr"]
 [ext_resource type="PackedScene" uid="uid://7g38j8jilfie" path="res://menus/ui_elements/settings_overlay.tscn" id="3_rqbgu"]
 [ext_resource type="AudioStream" uid="uid://dfc15gnydypjy" path="res://assets/#68 Goodbye Tales - Orchestrated.WAV" id="3_yjgyn"]
-[ext_resource type="PackedScene" uid="uid://n2hdjpc8d1ny" path="res://credits_overlay.tscn" id="4_oblsv"]
+[ext_resource type="PackedScene" uid="uid://jmuhbdg1flr6" path="res://menus/ui_elements/credits_overlay.tscn" id="5_pwbes"]
 
 [sub_resource type="Gradient" id="Gradient_urp6f"]
 offsets = PackedFloat32Array(0, 0.5377358, 0.7590361)
@@ -103,11 +104,30 @@ size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_8gy84")
 text = "quit"
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=959012008]
+z_index = -7
+layout_mode = 0
+offset_left = 271.99997
+offset_top = 57.0
+offset_right = 311.99997
+offset_bottom = 121.0
+rotation = 0.17253423
+texture = ExtResource("3_a63lr")
+
+[node name="PointLight2D" type="PointLight2D" parent="TextureRect" unique_id=1991185068]
+position = Vector2(19.582212, -13.027329)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("GradientTexture2D_as7xp")
+
+[node name="HeatRadius" type="PointLight2D" parent="TextureRect" unique_id=46740968]
+position = Vector2(19.582212, -13.027329)
+texture = SubResource("GradientTexture2D_ok24e")
+
 [node name="SettingsOverlay" parent="." unique_id=1296708987 instance=ExtResource("3_rqbgu")]
 visible = false
 layout_mode = 1
 
-[node name="CreditsOverlay" parent="." unique_id=1897434153 instance=ExtResource("4_oblsv")]
+[node name="CreditsOverlay" parent="." unique_id=1897434153 instance=ExtResource("5_pwbes")]
 visible = false
 layout_mode = 1
 
@@ -128,4 +148,5 @@ autoplay = true
 bus = &"Music"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=159941975]
+position = Vector2(159, 103)
 color = Color(0.40069774, 0.40069774, 0.40069768, 1)
