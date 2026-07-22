@@ -1,11 +1,12 @@
 extends Control
 
 
-@export var light: PointLight2D
 @export var play_button: Button
 @export var settings_button: Button
 @export var credits_button: Button
 @export var quit_button: Button
+@export var settings_overlay: PanelContainer
+@export var light: PointLight2D
 
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_pressed)
@@ -21,7 +22,7 @@ func _on_play_pressed() -> void:
 	SceneManager.transition_to(SceneManager.SCENES.DungeonTutorial)
 
 func _on_settings_pressed() -> void:
-	pass
+	settings_overlay.visible = !settings_overlay.visible
 
 func _on_credits_pressed() -> void:
 	pass

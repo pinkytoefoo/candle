@@ -2,7 +2,8 @@
 
 [ext_resource type="FontFile" uid="uid://c23i1xopflnbk" path="res://assets/BitPotion.ttf" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://cs84kf4xl2awh" path="res://menus/main_menu.gd" id="1_ij7vn"]
-[ext_resource type="AudioStream" uid="uid://d0h8qfuwb60pr" path="res://assets/#67 Gift - Orchestrated.WAV" id="3_yjgyn"]
+[ext_resource type="PackedScene" uid="uid://7g38j8jilfie" path="res://menus/ui_elements/settings_overlay.tscn" id="3_rqbgu"]
+[ext_resource type="AudioStream" uid="uid://dfc15gnydypjy" path="res://assets/#68 Goodbye Tales - Orchestrated.WAV" id="3_yjgyn"]
 
 [sub_resource type="Gradient" id="Gradient_yjgyn"]
 offsets = PackedFloat32Array(0, 0.7590361)
@@ -13,7 +14,7 @@ gradient = SubResource("Gradient_yjgyn")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Control" type="Control" unique_id=420166789 node_paths=PackedStringArray("light", "play_button", "settings_button", "credits_button", "quit_button")]
+[node name="Control" type="Control" unique_id=420166789 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "settings_overlay", "light")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,11 +22,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ij7vn")
-light = NodePath("PointLight2D")
 play_button = NodePath("VBoxContainer/PlayButton")
 settings_button = NodePath("VBoxContainer/SettingsButton")
 credits_button = NodePath("VBoxContainer/CreditsButton")
 quit_button = NodePath("VBoxContainer/OptionsButton")
+settings_overlay = NodePath("SettingsOverlay")
+light = NodePath("PointLight2D")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=629623247]
 layout_mode = 1
@@ -91,6 +93,10 @@ text = "quit"
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=2054722713]
 position = Vector2(160, 104)
 texture = SubResource("GradientTexture2D_rqbgu")
+
+[node name="SettingsOverlay" parent="." unique_id=1296708987 instance=ExtResource("3_rqbgu")]
+visible = false
+layout_mode = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=159941975]
 color = Color(0.40069774, 0.40069774, 0.40069768, 1)
