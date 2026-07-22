@@ -35,6 +35,10 @@ window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://k58kga5e7oi3"
 
+[gui]
+
+theme/custom="uid://cce3byrmexdc"
+
 [input]
 
 left={

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://cs84kf4xl2awh" path="res://menus/main_menu.gd" id="1_ij7vn"]
 [ext_resource type="PackedScene" uid="uid://7g38j8jilfie" path="res://menus/ui_elements/settings_overlay.tscn" id="3_rqbgu"]
 [ext_resource type="AudioStream" uid="uid://dfc15gnydypjy" path="res://assets/#68 Goodbye Tales - Orchestrated.WAV" id="3_yjgyn"]
+[ext_resource type="PackedScene" uid="uid://jmuhbdg1flr6" path="res://credits_overlay.tscn" id="4_oblsv"]
 
 [sub_resource type="Gradient" id="Gradient_yjgyn"]
 offsets = PackedFloat32Array(0, 0.7590361)
@@ -14,7 +15,7 @@ gradient = SubResource("Gradient_yjgyn")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="Control" type="Control" unique_id=420166789 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "settings_overlay", "light")]
+[node name="Control" type="Control" unique_id=420166789 node_paths=PackedStringArray("play_button", "settings_button", "credits_button", "quit_button", "settings_overlay", "credits_overlay", "light")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,6 +28,7 @@ settings_button = NodePath("VBoxContainer/SettingsButton")
 credits_button = NodePath("VBoxContainer/CreditsButton")
 quit_button = NodePath("VBoxContainer/OptionsButton")
 settings_overlay = NodePath("SettingsOverlay")
+credits_overlay = NodePath("CreditsOverlay")
 light = NodePath("PointLight2D")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=629623247]
@@ -98,10 +100,14 @@ texture = SubResource("GradientTexture2D_rqbgu")
 visible = false
 layout_mode = 1
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=159941975]
-color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+[node name="CreditsOverlay" parent="." unique_id=1897434153 instance=ExtResource("4_oblsv")]
+visible = false
+layout_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1877145958]
 stream = ExtResource("3_yjgyn")
 autoplay = true
 bus = &"Music"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=159941975]
+color = Color(0.40069774, 0.40069774, 0.40069768, 1)

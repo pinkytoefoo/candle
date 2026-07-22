@@ -6,6 +6,7 @@ extends Control
 @export var credits_button: Button
 @export var quit_button: Button
 @export var settings_overlay: PanelContainer
+@export var credits_overlay: PanelContainer
 @export var light: PointLight2D
 
 func _ready() -> void:
@@ -25,4 +26,4 @@ func _on_settings_pressed() -> void:
 	settings_overlay.visible = !settings_overlay.visible
 
 func _on_credits_pressed() -> void:
-	pass
+	credits_overlay.visible = !credits_overlay.visible

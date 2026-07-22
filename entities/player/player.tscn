@@ -255,11 +255,11 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer" unique_id=795434632]
-offset_left = 27.0
-offset_top = 9.0
-offset_right = 39.0
+offset_left = 13.0
+offset_top = 1.0
+offset_right = 50.0
 offset_bottom = 14.0
-theme_override_font_sizes/font_size = 3
+theme_override_font_sizes/font_size = 16
 text = "wax left"
 
 [node name="InteractComponent" parent="." unique_id=1696677426 instance=ExtResource("5_fkugw")]
