@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dhb5lxbg6tapj"]
+
+[ext_resource type="PackedScene" uid="uid://dtwj0bpn6kdbw" path="res://entities/player/player.tscn" id="1_8gp3g"]
+[ext_resource type="PackedScene" uid="uid://pd0ejgh253pj" path="res://dungeons/interactables/cobweb.tscn" id="2_cwwqr"]
+
+[node name="Gym" type="Node2D" unique_id=562963314]
+
+[node name="Player" parent="." unique_id=2055169610 instance=ExtResource("1_8gp3g")]
+
+[node name="Cobweb" parent="." unique_id=950412346 instance=ExtResource("2_cwwqr")]
+position = Vector2(136, 48)
+
+[node name="Cobweb2" parent="." unique_id=1331255412 instance=ExtResource("2_cwwqr")]
+position = Vector2(136, 64)

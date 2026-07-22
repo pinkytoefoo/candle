@@ -32,7 +32,6 @@ func transition_to(scene_: String, config_: Resource = null) -> void:
 	
 	current_loading_screen = loading_screen.instantiate()
 	add_child(current_loading_screen)
-	print(current_loading_screen)
 	#progress_changed.connect(current_loading_screen._on_progress_changed, CONNECT_ONE_SHOT)
 	load_finished.connect(current_loading_screen._on_load_finished, CONNECT_ONE_SHOT)
 	

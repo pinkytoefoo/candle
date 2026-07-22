@@ -1,10 +1,30 @@
-[gd_scene format=3 uid="uid://bd6xa6nrkalej"]
+[gd_scene format=3 uid="uid://pd0ejgh253pj"]
 
-[ext_resource type="Script" uid="uid://cetvrbta7qpdm" path="res://node_2d.gd" id="1_dnenx"]
+[ext_resource type="Script" uid="uid://dmegw6drkhllx" path="res://cobweb.gd" id="1_g5lvt"]
+[ext_resource type="Script" uid="uid://tsluhknq7omg" path="res://dungeons/interactables/shared/interactable.gd" id="2_nlp7q"]
+[ext_resource type="Texture2D" uid="uid://bs2ingsvtmngx" path="res://cobweb.png" id="3_jy8ud"]
 
-[node name="Node2D" type="Node2D" unique_id=2021541651]
-script = ExtResource("1_dnenx")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yuod"]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1357193376]
-offset_right = 40.0
-offset_bottom = 40.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as7xp"]
+size = Vector2(16, 16)
+
+[node name="Cobweb" type="StaticBody2D" unique_id=950412346 node_paths=PackedStringArray("interactable")]
+script = ExtResource("1_g5lvt")
+interactable = NodePath("Interactable")
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1080608381]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("2_nlp7q")
+interact_name = "set on fire"
+metadata/_custom_type_script = "uid://tsluhknq7omg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=133724832]
+shape = SubResource("RectangleShape2D_1yuod")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669713672]
+texture = ExtResource("3_jy8ud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=112288682]
+shape = SubResource("RectangleShape2D_as7xp")

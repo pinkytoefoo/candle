@@ -581,7 +581,7 @@ tile_set = SubResource("TileSet_1yuod")
 tile_map_data = PackedByteArray("AAAIAAIAAQAFAB0AAAAIAAgAAQAHAB0AAAA=")
 tile_set = SubResource("TileSet_as7xp")
 
-[node name="StaticBody2D" parent="." unique_id=801283105 instance=ExtResource("4_tsbsy")]
+[node name="Door" parent="." unique_id=801283105 instance=ExtResource("4_tsbsy")]
 position = Vector2(142, 17)
 is_last_door = true
 
