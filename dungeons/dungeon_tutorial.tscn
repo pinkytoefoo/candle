@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://v7hs7jp36lyf" path="res://assets/other_dungeon/Tileset.png" id="2_0xc52"]
 [ext_resource type="PackedScene" uid="uid://dtwj0bpn6kdbw" path="res://entities/player/player.tscn" id="3_0xc52"]
 [ext_resource type="PackedScene" uid="uid://dr3blodr0maf" path="res://dungeons/interactables/door.tscn" id="4_tsbsy"]
+[ext_resource type="Script" uid="uid://cxvfhxch8bj0a" path="res://entities/enemy/enemy_test.gd" id="5_h1xbx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tkht"]
 texture = ExtResource("2_0xc52")
@@ -566,6 +567,10 @@ texture = ExtResource("2_0xc52")
 [sub_resource type="TileSet" id="TileSet_as7xp"]
 sources/1 = SubResource("TileSetAtlasSource_0xc52")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_7tkht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20erm"]
+
 [node name="Node2D" type="Node2D" unique_id=1868311066]
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=651129566]
@@ -589,3 +594,15 @@ position = Vector2(159, 151)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1325740558]
 color = Color(0.27752745, 0.2775278, 0.27752772, 1)
+
+[node name="enemyTest" type="CharacterBody2D" parent="." unique_id=1032485441]
+position = Vector2(153, 112)
+script = ExtResource("5_h1xbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="enemyTest" unique_id=1561368208]
+scale = Vector2(7, 7)
+texture = SubResource("PlaceholderTexture2D_7tkht")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemyTest" unique_id=470562819]
+scale = Vector2(0.4, 0.4)
+shape = SubResource("RectangleShape2D_20erm")
