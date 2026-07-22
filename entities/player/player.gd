@@ -37,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	knockback=lerp(knockback,Vector2.ZERO, 0.1)
 	print(wax)
+	if wax<=0.0:
+		get_tree().reload_current_scene()
 
 func _handle_animations() -> void:
 	match input_dir:

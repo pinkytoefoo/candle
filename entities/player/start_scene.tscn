@@ -195,7 +195,7 @@ radius = 4.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22np6"]
 
-[node name="StartScene" type="Node2D" unique_id=559154731]
+[node name="Player" type="Node2D" unique_id=559154731]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=717215489 node_paths=PackedStringArray("animated_sprite", "candle")]
 script = ExtResource("1_o3ap5")
