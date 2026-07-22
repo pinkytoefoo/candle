@@ -17,6 +17,7 @@ sprite = NodePath("Sprite2D")
 is_last_door = null
 
 [node name="Interactable" type="Area2D" parent="." unique_id=1523044143]
+monitoring = false
 script = ExtResource("2_kkxmw")
 interact_name = "(e) open door"
 metadata/_custom_type_script = "uid://tsluhknq7omg"

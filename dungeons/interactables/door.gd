@@ -17,5 +17,5 @@ func _ready() -> void:
 func _on_interact() -> void:
 	sprite.region_rect = OPEN_DOOR_REGION
 	if is_last_door:
-		#SceneManager.trasnition()
-		SceneManager.transition_to(SceneManager.SCENES.DungeonTutorial)
+		SceneManager.reload_current_scene()
+		#SceneManager.transition_to(SceneManager.SCENES.DungeonTutorial)

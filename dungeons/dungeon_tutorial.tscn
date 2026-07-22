@@ -582,6 +582,7 @@ tile_set = SubResource("TileSet_as7xp")
 
 [node name="StaticBody2D" parent="." unique_id=801283105 instance=ExtResource("4_tsbsy")]
 position = Vector2(142, 17)
+is_last_door = true
 
 [node name="Player" parent="." unique_id=2055169610 instance=ExtResource("3_0xc52")]
 position = Vector2(159, 151)

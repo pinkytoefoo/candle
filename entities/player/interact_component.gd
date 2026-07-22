@@ -21,7 +21,7 @@ func _process(_delta: float) -> void:
 		current_interactions.sort_custom(_sort_by_nearest)
 		if current_interactions[0].is_interactable:
 			interact_label.text = current_interactions[0].interact_name
-			interact_label.visible = true
+			interact_label.show()
 	else:
 		interact_label.hide()
 
@@ -33,7 +33,6 @@ func _sort_by_nearest(area1, area2):
 
 
 func _on_interact_range_area_entered(area: Area2D) -> void:
-	print("here")
 	current_interactions.push_back(area)
 
 
