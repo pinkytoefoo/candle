@@ -8,7 +8,8 @@ func _ready() -> void:
 
 func set_on_fire() -> void:
 	var tween: Tween = create_tween()
-	tween.tween_property(self, "modulate", Color(1.0, 1.0, 1.0, 0.0), 0.2)
+	tween.tween_property(self, "modulate", Color(1.0, 0.8, 0.0, 1), 0.1)
+	tween.tween_property(self, "modulate", Color(0.0, 0.0, 0.0, 0.0), 0.1)
 	tween.tween_callback(func() -> void:
 		queue_free()
 		

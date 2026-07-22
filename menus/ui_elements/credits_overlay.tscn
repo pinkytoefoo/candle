@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jmuhbdg1flr6"]
 
-[ext_resource type="Script" uid="uid://clqh4r56b355h" path="res://credits_overlay.gd" id="1_wvym2"]
+[ext_resource type="Script" uid="uid://clqh4r56b355h" path="res://menus/ui_elements/credits_overlay.gd" id="1_wvym2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oafmo"]
 content_margin_left = 10.0

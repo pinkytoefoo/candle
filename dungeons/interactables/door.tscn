@@ -10,13 +10,15 @@ size = Vector2(34, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_as7xp"]
 size = Vector2(32, 16)
 
-[node name="Door" type="StaticBody2D" unique_id=801283105 node_paths=PackedStringArray("interactable", "sprite")]
+[node name="Door" type="StaticBody2D" unique_id=801283105 node_paths=PackedStringArray("interactable", "sprite", "collider")]
 script = ExtResource("1_yhjyf")
 interactable = NodePath("Interactable")
 sprite = NodePath("Sprite2D")
-is_last_door = null
+collider = NodePath("CollisionShape2D")
 
 [node name="Interactable" type="Area2D" parent="." unique_id=1523044143]
+collision_layer = 4
+collision_mask = 2
 monitoring = false
 script = ExtResource("2_kkxmw")
 interact_name = "(e) open door"

@@ -24,6 +24,9 @@ var wax: float = 10.0:
 		_update_wax_ui()
 #endregion
 
+func _ready() -> void:
+	wax_bar.max_value = wax
+
 func _physics_process(delta: float) -> void:
 	input_dir = Input.get_vector("left", "right", "up", "down")
 	
@@ -39,7 +42,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	knockback=lerp(knockback,Vector2.ZERO, 0.1)
-	print(wax)
 	if wax<=0.0:
 		SceneManager.reload_current_scene()
 

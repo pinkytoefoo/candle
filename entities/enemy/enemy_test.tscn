@@ -7,6 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20erm"]
 
 [node name="EnemyTest" type="CharacterBody2D" unique_id=2141791888]
+collision_mask = 2
 script = ExtResource("1_imbt5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=311116793]

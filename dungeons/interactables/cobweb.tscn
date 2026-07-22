@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://pd0ejgh253pj"]
 
-[ext_resource type="Script" uid="uid://dmegw6drkhllx" path="res://cobweb.gd" id="1_g5lvt"]
+[ext_resource type="Script" uid="uid://dmegw6drkhllx" path="res://dungeons/interactables/cobweb.gd" id="1_g5lvt"]
 [ext_resource type="Script" uid="uid://tsluhknq7omg" path="res://dungeons/interactables/shared/interactable.gd" id="2_nlp7q"]
-[ext_resource type="Texture2D" uid="uid://bs2ingsvtmngx" path="res://cobweb.png" id="3_jy8ud"]
+[ext_resource type="Texture2D" uid="uid://bs2ingsvtmngx" path="res://dungeons/interactables/cobweb.png" id="3_jy8ud"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yuod"]
 

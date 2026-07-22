@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bs2ingsvtmngx"
-path="res://.godot/imported/cobweb.png-f0bf2f663ba929b667f3b845976fcd29.ctex"
+uid="uid://bpjr8kcc310xn"
+path="res://.godot/imported/pkl_lite_keys_0_one_letter_a.png-f596686eb218db3d18a8ad879b11ea35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cobweb.png"
-dest_files=["res://.godot/imported/cobweb.png-f0bf2f663ba929b667f3b845976fcd29.ctex"]
+source_file="res://assets/ui/pkl_lite_keys_0_one_letter_a.png"
+dest_files=["res://.godot/imported/pkl_lite_keys_0_one_letter_a.png-f596686eb218db3d18a8ad879b11ea35.ctex"]
 
 [params]
 

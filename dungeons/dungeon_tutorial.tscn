@@ -3,8 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://bfobqo2diewx5" path="res://assets/other_dungeon/Dungeon tileset.png" id="1_2qjps"]
 [ext_resource type="Texture2D" uid="uid://v7hs7jp36lyf" path="res://assets/other_dungeon/Tileset.png" id="2_0xc52"]
 [ext_resource type="PackedScene" uid="uid://dtwj0bpn6kdbw" path="res://entities/player/player.tscn" id="3_0xc52"]
+[ext_resource type="PackedScene" uid="uid://pd0ejgh253pj" path="res://dungeons/interactables/cobweb.tscn" id="3_7tkht"]
 [ext_resource type="PackedScene" uid="uid://dr3blodr0maf" path="res://dungeons/interactables/door.tscn" id="4_tsbsy"]
 [ext_resource type="PackedScene" uid="uid://ba5bissemj0k5" path="res://entities/enemy/enemy_test.tscn" id="5_h1xbx"]
+[ext_resource type="Texture2D" uid="uid://dk5ngxiuhdk4" path="res://assets/ui/pkl_lite_keys_0_one_letter_w.png" id="7_j5sy3"]
+[ext_resource type="Texture2D" uid="uid://bpjr8kcc310xn" path="res://assets/ui/pkl_lite_keys_0_one_letter_a.png" id="8_xtjxr"]
+[ext_resource type="Texture2D" uid="uid://b1vl7hi6rxocr" path="res://assets/ui/pkl_lite_keys_0_one_letter_s.png" id="9_6tgh8"]
+[ext_resource type="Texture2D" uid="uid://cupmvu3f066e6" path="res://assets/ui/pkl_lite_keys_0_one_letter_d.png" id="10_uoegu"]
+[ext_resource type="Texture2D" uid="uid://b4nq7ph38hnms" path="res://assets/ui/pkl_lite_keys_0_one_letter_e.png" id="11_xtjxr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tkht"]
 texture = ExtResource("2_0xc52")
@@ -567,6 +573,12 @@ texture = ExtResource("2_0xc52")
 [sub_resource type="TileSet" id="TileSet_as7xp"]
 sources/1 = SubResource("TileSetAtlasSource_0xc52")
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_20erm"]
+scenes/1/scene = ExtResource("3_7tkht")
+
+[sub_resource type="TileSet" id="TileSet_fgwx2"]
+sources/0 = SubResource("TileSetScenesCollectionSource_20erm")
+
 [node name="Node2D" type="Node2D" unique_id=1868311066]
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=651129566]
@@ -581,9 +593,12 @@ tile_set = SubResource("TileSet_1yuod")
 tile_map_data = PackedByteArray("AAAIAAIAAQAFAB0AAAAIAAgAAQAHAB0AAAA=")
 tile_set = SubResource("TileSet_as7xp")
 
+[node name="Obstacles" type="TileMapLayer" parent="." unique_id=509196229]
+tile_map_data = PackedByteArray("AAAGAAoAAAAAAAAAAQAGAAkAAAAAAAAAAQAGAAgAAAAAAAAAAQAGAAcAAAAAAAAAAQAHAAcAAAAAAAAAAQAIAAcAAAAAAAAAAQAJAAcAAAAAAAAAAQAKAAcAAAAAAAAAAQALAAcAAAAAAAAAAQAMAAcAAAAAAAAAAQAMAAgAAAAAAAAAAQAMAAkAAAAAAAAAAQAMAAoAAAAAAAAAAQAFAAoAAAAAAAAAAQAFAAkAAAAAAAAAAQAEAAoAAAAAAAAAAQANAAoAAAAAAAAAAQANAAkAAAAAAAAAAQAOAAoAAAAAAAAAAQAHAAgAAAAAAAAAAQALAAgAAAAAAAAAAQAHAAoAAAAAAAAAAQALAAoAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_fgwx2")
+
 [node name="Door" parent="." unique_id=801283105 instance=ExtResource("4_tsbsy")]
-position = Vector2(142, 17)
-is_last_door = true
+position = Vector2(141, 19)
 
 [node name="Player" parent="." unique_id=2055169610 instance=ExtResource("3_0xc52")]
 position = Vector2(159, 151)
@@ -592,3 +607,53 @@ position = Vector2(159, 151)
 color = Color(0.27752745, 0.2775278, 0.27752772, 1)
 
 [node name="EnemyTest" parent="." unique_id=2141791888 instance=ExtResource("5_h1xbx")]
+position = Vector2(67, 89)
+
+[node name="KeySprites" type="Node2D" parent="." unique_id=1329362150]
+
+[node name="W" type="Sprite2D" parent="KeySprites" unique_id=596691618]
+position = Vector2(233, 81)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_j5sy3")
+
+[node name="A" type="Sprite2D" parent="KeySprites" unique_id=2022252287]
+position = Vector2(225, 89)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_xtjxr")
+
+[node name="S" type="Sprite2D" parent="KeySprites" unique_id=272798915]
+position = Vector2(233, 89)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_6tgh8")
+
+[node name="D" type="Sprite2D" parent="KeySprites" unique_id=660922927]
+position = Vector2(240, 89)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_uoegu")
+
+[node name="Movement" type="Label" parent="KeySprites" unique_id=1847839971]
+offset_left = 214.0
+offset_top = 90.0
+offset_right = 254.0
+offset_bottom = 103.0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 10
+text = "use to move"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="E" type="Sprite2D" parent="KeySprites" unique_id=1601933434]
+position = Vector2(233, 114)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_xtjxr")
+
+[node name="Label" type="Label" parent="KeySprites" unique_id=1751246922]
+offset_left = 214.0
+offset_top = 115.0
+offset_right = 254.0
+offset_bottom = 128.0
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 10
+text = "interact"
+horizontal_alignment = 1
+vertical_alignment = 1
