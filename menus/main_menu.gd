@@ -7,7 +7,7 @@ extends Control
 @export var quit_button: Button
 @export var settings_overlay: PanelContainer
 @export var credits_overlay: PanelContainer
-@export var light: PointLight2D
+@export var light: Node2D
 
 func _ready() -> void:
 	play_button.pressed.connect(_on_play_pressed)

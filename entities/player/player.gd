@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	knockback=lerp(knockback,Vector2.ZERO, 0.1)
 	print(wax)
 	if wax<=0.0:
-		get_tree().reload_current_scene()
+		SceneManager.reload_current_scene()
 
 func _handle_animations() -> void:
 	if input_dir == Vector2.ZERO:
