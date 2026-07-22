@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://cce3byrmexdc"]
+
+[ext_resource type="FontFile" uid="uid://c23i1xopflnbk" path="res://assets/BitPotion.ttf" id="1_al5oc"]
+
+[resource]
+Button/fonts/font = ExtResource("1_al5oc")
+Label/fonts/font = ExtResource("1_al5oc")
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/normal_font = ExtResource("1_al5oc")

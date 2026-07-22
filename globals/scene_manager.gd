@@ -9,8 +9,8 @@ signal load_finished
 # getting scenes via uid
 const SCENES = {
 	&"LoadingScreen": "uid://b1yfl3aa31uab",
-	# replace game with actual game in the future
-	&"Game": "res://entities/player/player.tscn"
+	&"DungeonTutorial": "uid://cppa3jnqfrxmj",
+	&"Player": "res://entities/player/player.tscn",
 }
 
 var loading_screen: PackedScene = preload(SCENES.LoadingScreen)

@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://c1ggwq35y7xvl"]
+
+[ext_resource type="FontFile" uid="uid://c23i1xopflnbk" path="res://assets/BitPotion.ttf" id="1_8gy84"]
+[ext_resource type="Script" uid="uid://cs84kf4xl2awh" path="res://menus/main_menu.gd" id="1_ij7vn"]
+[ext_resource type="AudioStream" uid="uid://d0h8qfuwb60pr" path="res://assets/#67 Gift - Orchestrated.WAV" id="3_yjgyn"]
+
+[sub_resource type="Gradient" id="Gradient_yjgyn"]
+offsets = PackedFloat32Array(0, 0.7590361)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rqbgu"]
+gradient = SubResource("Gradient_yjgyn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Control" type="Control" unique_id=420166789 node_paths=PackedStringArray("light", "play_button", "settings_button", "credits_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ij7vn")
+light = NodePath("PointLight2D")
+play_button = NodePath("VBoxContainer/PlayButton")
+settings_button = NodePath("VBoxContainer/SettingsButton")
+credits_button = NodePath("VBoxContainer/CreditsButton")
+quit_button = NodePath("VBoxContainer/OptionsButton")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=629623247]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1024168586]
+clip_contents = false
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_8gy84")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave amp=10.0 freq=4.0 connected=1]New Light"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=214124093]
+custom_minimum_size = Vector2(180, 0)
+custom_maximum_size = Vector2(180, -1)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_8gy84")
+text = "play"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=2135014677]
+custom_minimum_size = Vector2(180, 0)
+custom_maximum_size = Vector2(180, -1)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_8gy84")
+text = "settings"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1810724277]
+custom_minimum_size = Vector2(180, 0)
+custom_maximum_size = Vector2(180, -1)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_8gy84")
+text = "credits"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1204860199]
+custom_minimum_size = Vector2(180, 0)
+custom_maximum_size = Vector2(180, -1)
+propagate_maximum_size = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_8gy84")
+text = "quit"
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2054722713]
+position = Vector2(160, 104)
+texture = SubResource("GradientTexture2D_rqbgu")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=159941975]
+color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1877145958]
+stream = ExtResource("3_yjgyn")
+autoplay = true
+bus = &"Music"

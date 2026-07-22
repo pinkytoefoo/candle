@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://mi0knjh3r7l3" path="res://globals/loading_screen.gd" id="1_hl651"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1102935521 node_paths=PackedStringArray("color_rect")]
+process_mode = 3
 layer = 303
 script = ExtResource("1_hl651")
 color_rect = NodePath("ColorRect")
@@ -14,4 +15,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 offset_transform_enabled = true
-color = Color(0.89492244, 0.89492244, 0.8949224, 1)
+color = Color(0.033853266, 0.033853292, 0.033853196, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1815311795]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
